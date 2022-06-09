@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
-import { apiGetPostDetail } from "../services/postService";
-import { logComponentInitialization } from "./../utils/logComponentEvents";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import LoadingSpinner from "../components/loadingSpinner/loadingSpinner";
+import { apiGetPostDetail } from "../services/postService";
 import GridComments from "./../components/dataGrid/gridComments/gridComments";
-
+import { logComponentInitialization } from "./../utils/logComponentEvents";
 import "./postDetail.css";
 
 function PostDetail(props) {

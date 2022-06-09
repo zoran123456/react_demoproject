@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { AppContext, createAppContextValue } from "./store/appContext";
-import { apiGetPostsComments } from "./services/postService";
-import PostsCollection from "./pages/postCollection";
-import PostDetail from "./pages/postDetail";
 import AppHeader from "./components/appHeader/appHeader";
 import { ComponentInitializationPrefix } from "./constants/app";
 import NotFound from "./pages/notFound";
+import PostsCollection from "./pages/postCollection";
+import PostDetail from "./pages/postDetail";
+import { apiGetPostsComments } from "./services/postService";
+import { AppContext, createAppContextValue } from "./store/appContext";
 
 function App() {
   const handleError = (error) => {

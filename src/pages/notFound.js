@@ -1,7 +1,6 @@
+import PropTypes from "prop-types";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import PropTypes from "prop-types";
-
 import { logComponentInitialization } from "./../utils/logComponentEvents";
 
 function NotFound(props) {
