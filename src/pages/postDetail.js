@@ -23,8 +23,6 @@ function PostDetail(props) {
     const fetchData = async () => {
       const post = await apiGetPostDetail(id);
 
-      console.log("post", post);
-
       setPost(post);
     };
 
