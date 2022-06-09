@@ -5,13 +5,12 @@ import { apiGetPostsComments } from "./services/postService";
 import PostsCollection from "./pages/postCollection";
 import PostDetail from "./pages/postDetail";
 import AppHeader from "./components/appHeader/appHeader";
+import { ComponentInitializationPrefix } from "./constants/app";
 
 function App() {
   const handleError = (error) => {
     console.error("API ERROR", error);
   };
-
-  const logComponentInitializatorPrefix = "Component Created: ";
 
   const [items, setItems] = useState([]);
 
@@ -35,7 +34,7 @@ function App() {
     <div className="col-lg-8 mx-auto p-3 py-md-5">
       <AppHeader
         title="Demo Assignment"
-        initializationPrefix={logComponentInitializatorPrefix}
+        initializationPrefix={ComponentInitializationPrefix}
       />
 
       <main>
@@ -45,7 +44,7 @@ function App() {
               path="/posts"
               element={
                 <PostsCollection
-                  initializationPrefix={logComponentInitializatorPrefix}
+                  initializationPrefix={ComponentInitializationPrefix}
                   posts={items}
                 />
               }
@@ -54,7 +53,7 @@ function App() {
               path="/post/:id"
               element={
                 <PostDetail
-                  initializationPrefix={logComponentInitializatorPrefix}
+                  initializationPrefix={ComponentInitializationPrefix}
                 />
               }
             />
