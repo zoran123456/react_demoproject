@@ -17,6 +17,10 @@ function GridComments(props) {
     setExpanded(!expanded);
   };
 
+  const getBtnClassName = () => {
+    return expanded ? "btn btn-link mt-2" : "btn btn-link";
+  };
+
   if (!items || items.length === 0) return null;
 
   return (
@@ -39,7 +43,7 @@ function GridComments(props) {
       {showExpandLink && (
         <button
           type="button"
-          className="btn btn-link mt-2"
+          className={getBtnClassName()}
           onClick={toggleExpanded}
         >
           {expanded ? "Hide Comments" : "Show Comments"}
