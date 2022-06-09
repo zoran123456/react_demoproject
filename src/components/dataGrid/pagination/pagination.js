@@ -38,6 +38,7 @@ function Pagination({
             key={num}
             className={linkClassName(num + 1)}
           >
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className="page-link" onClick={() => pageChanged(num + 1)}>
               {num + 1}
             </a>
