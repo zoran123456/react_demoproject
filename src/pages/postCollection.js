@@ -134,9 +134,7 @@ function PostsCollection(props) {
 
   return (
     <>
-      <p>
-        <strong>Posts Collection</strong>
-      </p>
+      <h3>Posts</h3>
       {getRenderControl()}
     </>
   );
