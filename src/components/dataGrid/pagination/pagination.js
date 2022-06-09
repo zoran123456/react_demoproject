@@ -20,7 +20,7 @@ function Pagination({
 
   useEffect(() => {
     logComponentInitialization(initializationPrefix, "Pagination");
-  }, []);
+  }, [initializationPrefix]);
 
   if (pagesCount <= 1) return null;
 

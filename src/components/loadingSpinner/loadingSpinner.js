@@ -7,7 +7,7 @@ function LoadingSpinner(props) {
 
   useEffect(() => {
     logComponentInitialization(initializationPrefix, "LoadingSpinner");
-  }, []);
+  }, [initializationPrefix]);
 
   return (
     <div className="spinner-border" role="status">

@@ -9,7 +9,7 @@ function GridComments(props) {
 
   useEffect(() => {
     logComponentInitialization(initializationPrefix, "GridComments");
-  }, []);
+  }, [initializationPrefix]);
 
   const toggleExpanded = () => {
     setExpanded(!expanded);

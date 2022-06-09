@@ -35,7 +35,7 @@ function PostsCollection(props) {
     setAppContextValue(
       createAppContextValue(paginationPage, rowsPerPage, rowsFilter)
     );
-  }, [paginationPage, rowsFilter]);
+  }, [paginationPage, rowsFilter, rowsPerPage, setAppContextValue]);
 
   useEffect(() => {
     if (!rowsFilter || /^\s*$/.test(rowsFilter)) setFilteredItems(posts);
@@ -49,7 +49,7 @@ function PostsCollection(props) {
       setFilteredItems(filtered);
       setPaginationPage(1);
     }
-  }, [rowsFilter]);
+  }, [rowsFilter, posts]);
 
   useEffect(() => {
     setFilteredItems(posts);
@@ -68,7 +68,7 @@ function PostsCollection(props) {
 
       setFilteredItems(filtered);
     }
-  }, []);
+  }, [initializationPrefix, posts, rowsFilter]);
 
   const getRenderControl = () => {
     if (!posts || posts.length === 0) return <LoadingSpinner {...props} />;

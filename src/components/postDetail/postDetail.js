@@ -30,7 +30,7 @@ function PostDetail(props) {
 
   useEffect(() => {
     logComponentInitialization(initializationPrefix, "PostDetail");
-  }, []);
+  }, [initializationPrefix]);
 
   useEffect(() => {}, [post]);
 

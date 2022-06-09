@@ -5,7 +5,7 @@ import { logComponentInitialization } from "./../../utils/logComponentEvents";
 function PostsFilter({ value, onChange, initializationPrefix }) {
   useEffect(() => {
     logComponentInitialization(initializationPrefix, "PostsFilter");
-  }, []);
+  }, [initializationPrefix]);
 
   return (
     <div className="form-floating mb-2">
