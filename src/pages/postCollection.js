@@ -112,6 +112,7 @@ function PostsCollection(props) {
                         items={item.comments}
                         primary="email"
                         secondary="name"
+                        showExpandLink
                       />
                     </td>
                   </tr>

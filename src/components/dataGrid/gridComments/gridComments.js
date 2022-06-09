@@ -3,9 +3,11 @@ import PropTypes from "prop-types";
 import { logComponentInitialization } from "./../../../utils/logComponentEvents";
 
 function GridComments(props) {
-  const { items, primary, secondary, initializationPrefix } = props;
+  const { items, primary, secondary, showExpandLink, initializationPrefix } =
+    props;
 
-  const [expanded, setExpanded] = useState(false);
+  // Shorter is !showExpandLink but it is harder to understand
+  const [expanded, setExpanded] = useState(showExpandLink ? false : true);
 
   useEffect(() => {
     logComponentInitialization(initializationPrefix, "GridComments");
@@ -34,13 +36,15 @@ function GridComments(props) {
           </li>
         ))}
       </ul>
-      <button
-        type="button"
-        className="btn btn-link mt-2"
-        onClick={toggleExpanded}
-      >
-        {expanded ? "Hide Comments" : "Show Comments"}
-      </button>
+      {showExpandLink && (
+        <button
+          type="button"
+          className="btn btn-link mt-2"
+          onClick={toggleExpanded}
+        >
+          {expanded ? "Hide Comments" : "Show Comments"}
+        </button>
+      )}
     </>
   );
 }
@@ -49,6 +53,7 @@ GridComments.propTypes = {
   items: PropTypes.array.isRequired,
   primary: PropTypes.string.isRequired,
   secondary: PropTypes.string.isRequired,
+  showExpandLink: PropTypes.bool,
   initializationPrefix: PropTypes.string,
 };
 
