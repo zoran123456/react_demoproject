@@ -10,6 +10,9 @@ Created using Visual Studio Code.
 - lodash
 - eslint
 
+## Time took
+- about 3 days. or 25 hours
+
 ## Missing (not enough time/over complicating the project)
 
 - migrate to typescript
