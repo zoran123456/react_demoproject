@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -32,13 +33,7 @@ function PostsCollection(props) {
     setPaginationPage(pageNum);
   };
 
-  useEffect(() => {
-    setAppContextValue(
-      createAppContextValue(paginationPage, rowsPerPage, rowsFilter)
-    );
-  }, [paginationPage, rowsFilter, rowsPerPage, setAppContextValue]);
-
-  useEffect(() => {
+  const filterItems = () => {
     if (!rowsFilter || /^\s*$/.test(rowsFilter)) setFilteredItems(posts);
     else {
       var filtered = _(posts)
@@ -48,8 +43,18 @@ function PostsCollection(props) {
         .value();
 
       setFilteredItems(filtered);
-      setPaginationPage(1);
     }
+  };
+
+  useEffect(() => {
+    setAppContextValue(
+      createAppContextValue(paginationPage, rowsPerPage, rowsFilter)
+    );
+  }, [paginationPage, rowsFilter, rowsPerPage, setAppContextValue]);
+
+  useEffect(() => {
+    filterItems();
+    setPaginationPage(1);
   }, [rowsFilter, posts]);
 
   useEffect(() => {
@@ -58,17 +63,7 @@ function PostsCollection(props) {
 
   useEffect(() => {
     logComponentInitialization(initializationPrefix, "PostsCollection");
-
-    if (!rowsFilter || /^\s*$/.test(rowsFilter)) setFilteredItems(posts);
-    else {
-      var filtered = _(posts)
-        .filter((item) =>
-          item.title.toLowerCase().includes(rowsFilter.toLowerCase())
-        )
-        .value();
-
-      setFilteredItems(filtered);
-    }
+    filterItems();
   }, [initializationPrefix, posts, rowsFilter]);
 
   const getRenderControl = () => {
