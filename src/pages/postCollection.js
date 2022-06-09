@@ -43,6 +43,7 @@ function PostsCollection(props) {
         .value();
 
       setFilteredItems(filtered);
+      setPaginationPage(1);
     }
   };
 
@@ -54,8 +55,7 @@ function PostsCollection(props) {
 
   useEffect(() => {
     filterItems();
-    setPaginationPage(1);
-  }, [rowsFilter, posts]);
+  }, [rowsFilter]);
 
   useEffect(() => {
     setFilteredItems(posts);
@@ -63,8 +63,9 @@ function PostsCollection(props) {
 
   useEffect(() => {
     logComponentInitialization(initializationPrefix, "PostsCollection");
+
     filterItems();
-  }, [initializationPrefix, posts, rowsFilter]);
+  }, [initializationPrefix, posts]);
 
   const getRenderControl = () => {
     if (!posts || posts.length === 0) return <LoadingSpinner {...props} />;
@@ -86,6 +87,7 @@ function PostsCollection(props) {
                 <th>Username</th>
                 <th>Email</th>
                 <th># of Comments</th>
+                <th></th>
                 <th></th>
               </tr>
             </thead>
@@ -109,6 +111,9 @@ function PostsCollection(props) {
                         secondary="name"
                         showExpandLink
                       />
+                    </td>
+                    <td>
+                      <Link to={`/post/${item.id}`}>Details &gt;&gt;</Link>
                     </td>
                   </tr>
                 )
