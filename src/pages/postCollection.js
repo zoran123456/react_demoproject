@@ -1,14 +1,15 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import Pagination from "../dataGrid/pagination/pagination";
-import { paginateData } from "./../../utils/paginateData";
-import { AppContext, createAppContextValue } from "./../../store/appContext";
 import _ from "lodash";
-import GridComments from "../dataGrid/gridComments/gridComments";
-import LoadingSpinner from "./../loadingSpinner/loadingSpinner";
-import PostsFilter from "../postsFilter/postsFilter";
-import { logComponentInitialization } from "./../../utils/logComponentEvents";
+import PostsFilter from "../components/postsFilter/postsFilter";
+import LoadingSpinner from "../components/loadingSpinner/loadingSpinner";
+import GridComments from "../components/dataGrid/gridComments/gridComments";
+import Pagination from "./../components/dataGrid/pagination/pagination";
+import { logComponentInitialization } from "./../utils/logComponentEvents";
+import { paginateData } from "./../utils/paginateData";
+import { createAppContextValue } from "../store/appContext";
+import { AppContext } from "./../store/appContext";
 
 function PostsCollection(props) {
   const { posts, initializationPrefix } = props;
