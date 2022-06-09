@@ -1,0 +1,7 @@
+.card-title {
+  text-transform: capitalize;
+}
+
+.post-body {
+  white-space: pre-wrap;
+}

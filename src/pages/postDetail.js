@@ -6,6 +6,8 @@ import { logComponentInitialization } from "./../utils/logComponentEvents";
 import LoadingSpinner from "../components/loadingSpinner/loadingSpinner";
 import GridComments from "./../components/dataGrid/gridComments/gridComments";
 
+import "./postDetail.css";
+
 function PostDetail(props) {
   const { id } = useParams();
   const [post, setPost] = useState(null);
@@ -44,7 +46,7 @@ function PostDetail(props) {
     else
       return (
         <>
-          <div className="card" style={{ width: "30rem" }}>
+          <div className="card mb-3">
             <div className="card-body">
               <h5 className="card-title">{post?.title}</h5>
               <h6 className="card-subtitle mb-2 text-muted">
@@ -56,9 +58,7 @@ function PostDetail(props) {
                 <strong>E-mail</strong> {post?.userInfo?.email}
                 <br />
               </p>
-              <p className="card-text" style={{ whiteSpace: "pre-wrap" }}>
-                {post?.body}
-              </p>
+              <p className="card-text post-body">{post?.body}</p>
             </div>
           </div>
           <GridComments
@@ -75,8 +75,8 @@ function PostDetail(props) {
 
   return (
     <>
-      <p>This are post detail</p>
-      <div className="mb-2">{getRenderBody()}</div>
+      <h3>Posts Detail</h3>
+      <div className="mb-5">{getRenderBody()}</div>
       <button type="button" className="btn btn-primary" onClick={gotoHome}>
         Go Back
       </button>
