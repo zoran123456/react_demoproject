@@ -5,6 +5,7 @@ import { AppContext, createAppContextValue } from "./store/appContext";
 import { apiGetPostsComments } from "./services/postService";
 import PostsCollection from "./pages/postCollection";
 import PostDetail from "./pages/postDetail";
+import AppHeader from "./components/appHeader/appHeader";
 
 function App() {
   const handleError = (error) => {
@@ -32,7 +33,12 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="col-lg-8 mx-auto p-3 py-md-5">
+      <AppHeader
+        title="Demo Assignment"
+        initializationPrefix={logComponentInitializatorPrefix}
+      />
+
       <main>
         <AppContext.Provider value={{ appContextValue, setAppContextValue }}>
           <Routes>
@@ -58,6 +64,10 @@ function App() {
           </Routes>
         </AppContext.Provider>
       </main>
+      <footer className="pt-5 my-5 text-muted border-top">
+        Demo asignment project by <strong>Zoran Bošnjak</strong> &middot; &copy;
+        2022
+      </footer>
     </div>
   );
 }
