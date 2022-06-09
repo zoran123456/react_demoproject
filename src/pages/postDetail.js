@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { apiGetPostDetail } from "../services/postService";
 import { logComponentInitialization } from "./../utils/logComponentEvents";
 import LoadingSpinner from "../components/loadingSpinner/loadingSpinner";
+import GridComments from "./../components/dataGrid/gridComments/gridComments";
 
 function PostDetail(props) {
   const { id } = useParams();
@@ -43,18 +44,31 @@ function PostDetail(props) {
     else
       return (
         <>
-          <strong>Id</strong> {post?.id}
-          <br />
-          <strong>User Id</strong> {post?.userId}
-          <br />
-          <strong>User Email</strong> {post?.userInfo?.email}
-          <br />
-          <strong>User Name</strong> {post?.userInfo?.name}
-          <br />
-          <strong>Title</strong> {post?.title}
-          <br />
-          <div style={{ whiteSpace: "pre-wrap" }}>{post?.body}</div>
-          <hr />
+          <div className="card" style={{ width: "30rem" }}>
+            <div className="card-body">
+              <h5 className="card-title">{post?.title}</h5>
+              <h6 className="card-subtitle mb-2 text-muted">
+                By {post?.userInfo?.name}
+              </h6>
+              <p className="card-text">
+                <strong>Username</strong> {post?.userInfo?.username}
+                <br />
+                <strong>E-mail</strong> {post?.userInfo?.email}
+                <br />
+              </p>
+              <p className="card-text" style={{ whiteSpace: "pre-wrap" }}>
+                {post?.body}
+              </p>
+            </div>
+          </div>
+          <GridComments
+            {...props}
+            key="id"
+            primary="email"
+            secondary="name"
+            showExpandLink={false}
+            items={post?.comments}
+          />
         </>
       );
   };
