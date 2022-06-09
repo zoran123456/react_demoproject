@@ -6,6 +6,7 @@ import PostsCollection from "./pages/postCollection";
 import PostDetail from "./pages/postDetail";
 import AppHeader from "./components/appHeader/appHeader";
 import { ComponentInitializationPrefix } from "./constants/app";
+import NotFound from "./pages/notFound";
 
 function App() {
   const handleError = (error) => {
@@ -58,7 +59,14 @@ function App() {
               }
             />
             <Route path="/" element={<Navigate to="/posts" />} />
-            <Route path="*" element={<h2>ĐE BI TI??!</h2>} />
+            <Route
+              path="*"
+              element={
+                <NotFound
+                  initializationPrefix={ComponentInitializationPrefix}
+                />
+              }
+            />
           </Routes>
         </AppContext.Provider>
       </main>
