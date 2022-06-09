@@ -1,10 +1,10 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import PostDetail from "./components/postDetail/postDetail";
 import { AppContext, createAppContextValue } from "./store/appContext";
 import { apiGetPostsComments } from "./services/postService";
 import PostsCollection from "./pages/postCollection";
+import PostDetail from "./pages/postDetail";
 
 function App() {
   const handleError = (error) => {

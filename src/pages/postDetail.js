@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { apiGetPostDetail } from "../../services/postService";
-import LoadingSpinner from "../loadingSpinner/loadingSpinner";
 import PropTypes from "prop-types";
-import { logComponentInitialization } from "./../../utils/logComponentEvents";
+import { apiGetPostDetail } from "../services/postService";
+import { logComponentInitialization } from "./../utils/logComponentEvents";
+import LoadingSpinner from "../components/loadingSpinner/loadingSpinner";
 
 function PostDetail(props) {
   const { id } = useParams();
