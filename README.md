@@ -17,8 +17,9 @@ Created using Visual Studio Code.
 
 - migrate to typescript
 - use reduxtoolkit/mobx (I'm not a fan, but they are widely used so...)
-- implement more design
+- implement more design so it's not as boring
 - use Material-Ui/Ant Design/Fluent Ui
+- (or create datagrid more generic)
 - add more tests
 - implement Authentication
 
