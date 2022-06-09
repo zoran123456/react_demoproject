@@ -1,3 +1,5 @@
+// Custom PropType element used to force choosing a number with minimum and maximum value
+
 export const numberBetween = (min, max) => {
   return (props, propName, componentName) => {
     const prop = props[propName];

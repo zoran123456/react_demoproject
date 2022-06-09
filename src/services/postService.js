@@ -3,6 +3,7 @@ import { ApiPostsUrl } from "./../constants/api";
 import { apiGetUsers } from "./usersService";
 import { apiGetComments } from "./commentsService";
 
+//#region private functions
 function _getCommentsForPost(postId, comments) {
   const result = comments.filter((comment) => comment.postId === postId);
 
@@ -14,6 +15,7 @@ function _getUserForId(id, users) {
 
   return user;
 }
+//#endregion
 
 export async function apiGetPosts() {
   const response = await makeHttpGetRequest(ApiPostsUrl);
